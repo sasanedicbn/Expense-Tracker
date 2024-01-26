@@ -1,13 +1,19 @@
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4;
-}
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  font-family:'Times New Roman', Times, serif;
+  background-color: #f4f4f4;
+}
+
 /* FIRST CONTAINER */
+header{
+  background-color: #fff;
+  padding: 20px;
+  padding-left: 40px;
+}
 .container {
   display: flex;
   justify-content: space-between;
@@ -73,7 +79,7 @@ button {
 }
 
 .header-title {
-  color: #007bff;
+  color: black;
 }
 
 .set-budget-btn,
@@ -91,7 +97,7 @@ button {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #f8f2f2;
+  background-color: #fdfcfc;
   border-radius: 8px;
   border: 2px solid rgb(223, 221, 221);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -110,6 +116,7 @@ button {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-right: 15px;
+  border: 1px solid rgb(203, 202, 202);
 }
 
 .box .icon {
