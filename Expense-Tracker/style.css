@@ -21,3 +21,66 @@ body {
 .section-header {
   margin-bottom: 20px;
 }
+
+.budget-form,
+.transaction-form {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.edit-budget,
+.add-transaction {
+  flex: 0 0 48%;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  align-items: baseline; /* Dodato poravnavanje input polja u istu ravni */
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+input {
+  width: calc(100% - 10px);
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.header-title {
+  color: #007bff;
+}
+
+.set-budget-btn,
+.add-transaction-btn {
+  background-color: #28a745;
+}
+
+.text-xs {
+  font-size: 12px;
+  color: #777;
+}
