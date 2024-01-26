@@ -41,7 +41,7 @@ body {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
-  align-items: baseline; /* Dodato poravnavanje input polja u istu ravni */
+  align-items: baseline; 
 }
 
 label {
