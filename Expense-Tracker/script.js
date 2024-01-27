@@ -11,6 +11,15 @@ class Budget {
     this.balance = 0;
     this.expenseArray = [];
   }
+  // addExpense(){
+  //     this.expenseArray.push(this.expenses)
+  // }
+  getBudget(value) {
+    this.budget = Number(value);
+  }
+  getBalance(value) {
+    this.balance = Number(value);
+  }
 }
 // const UX = {
 //     displayBudget(){
