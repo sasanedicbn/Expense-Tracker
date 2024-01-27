@@ -67,3 +67,4 @@ budgetBtn.addEventListener("click", function () {
   console.log("Postavljeni budZet:", BUDGET.budget);
   console.log("Postavljeni bilans:", BUDGET.balance);
 });
+btnAdd.addEventListener("click", function () {});
