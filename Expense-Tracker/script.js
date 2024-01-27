@@ -2,6 +2,9 @@ const budgetInput = document.querySelector(".budget-input");
 const budgetBtn = document.querySelector(".set-budget-btn");
 const budget = document.querySelector(".box-title-budget");
 const balance = document.querySelector(".box-title-balance");
+const btnAdd = document.querySelector(".add-transaction-btn");
+const transactionValue = document.querySelector(".transaction-cost-input");
+console.log(btnAdd);
 console.log(budget);
 
 //globalna koji mi je balance i koji mi je array expensova
@@ -19,7 +22,7 @@ class Budget {
     return (this.budget = Number(value));
   }
   getBalance(value) {
-    this.balance = Number(value);
+    this.balance = this.balance - this.expenses;
   }
   getValueBudget() {
     return this.budget;
@@ -27,6 +30,12 @@ class Budget {
   getValueBalance() {
     return this.balance;
   }
+}
+class Transaction {
+  constructor(name, transaction) {
+    (this.transactionName = name), (this.transaction = transaction);
+  }
+  sendingMoney() {}
 }
 class Ux {
   displayBudget(element, budget) {
