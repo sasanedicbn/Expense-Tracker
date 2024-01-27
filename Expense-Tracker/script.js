@@ -28,7 +28,7 @@ class Budget {
     return this.balance;
   }
 }
-class UX {
+class Ux {
   displayBudget(element, budget) {
     element.textContent = `$${budget}`;
   }
@@ -37,6 +37,7 @@ class UX {
   }
 }
 const BUDGET = new Budget();
+const UX = new Ux();
 
 budgetBtn.addEventListener("click", function () {
   console.log(budgetInput.value);
