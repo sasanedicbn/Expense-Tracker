@@ -44,7 +44,8 @@ budgetBtn.addEventListener("click", function () {
   const budgetValue = budgetInput.value;
   BUDGET.getBudget(budgetValue);
   BUDGET.getBalance(budgetValue);
-
+  UX.displayBudget(budget, BUDGET.getValueBudget());
+  UX.displayBalance(balance, BUDGET.getValueBalance());
   console.log("Postavljeni budZet:", BUDGET.budget);
   console.log("Postavljeni bilans:", BUDGET.balance);
 });
