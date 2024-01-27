@@ -28,7 +28,14 @@ class Budget {
     return this.balance;
   }
 }
-
+class UX {
+  displayBudget(element, budget) {
+    element.textContent = `$${budget}`;
+  }
+  displayBalance(element, balance) {
+    element.textContent = `$${balance}`;
+  }
+}
 const BUDGET = new Budget();
 
 budgetBtn.addEventListener("click", function () {
@@ -36,6 +43,7 @@ budgetBtn.addEventListener("click", function () {
   const budgetValue = budgetInput.value;
   BUDGET.getBudget(budgetValue);
   BUDGET.getBalance(budgetValue);
+
   console.log("Postavljeni budZet:", BUDGET.budget);
   console.log("Postavljeni bilans:", BUDGET.balance);
 });
