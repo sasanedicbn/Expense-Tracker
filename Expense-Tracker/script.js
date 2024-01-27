@@ -1,5 +1,8 @@
 const budgetInput = document.querySelector(".budget-input");
 const budgetBtn = document.querySelector(".set-budget-btn");
+const budget = document.querySelector(".box-title-budget");
+const balance = document.querySelector(".box-title-balance");
+console.log(budget);
 
 //globalna koji mi je balance i koji mi je array expensova
 //a da bi napravio taj expense moram da napravim ono new Expense
@@ -11,24 +14,28 @@ class Budget {
     this.balance = 0;
     this.expenseArray = [];
   }
-  // addExpense(){
-  //     this.expenseArray.push(this.expenses)
-  // }
+
   getBudget(value) {
-    this.budget = Number(value);
+    return (this.budget = Number(value));
   }
   getBalance(value) {
     this.balance = Number(value);
   }
+  getValueBudget() {
+    return this.budget;
+  }
+  getValueBalance() {
+    return this.balance;
+  }
 }
-// const UX = {
-//     displayBudget(){
 
-//     }
-// }
 const BUDGET = new Budget();
 
 budgetBtn.addEventListener("click", function () {
   console.log(budgetInput.value);
   const budgetValue = budgetInput.value;
+  BUDGET.getBudget(budgetValue);
+  BUDGET.getBalance(budgetValue);
+  console.log("Postavljeni budZet:", BUDGET.budget);
+  console.log("Postavljeni bilans:", BUDGET.balance);
 });
