@@ -42,6 +42,15 @@ const UX = new Ux();
 budgetBtn.addEventListener("click", function () {
   console.log(budgetInput.value);
   const budgetValue = budgetInput.value;
+  if (!budgetValue) {
+    Toastify({
+      text: "The budget cannot be empty. ",
+      className: "info",
+      style: {
+        background: "linear-gradient(to right, #00b09b, #96c93d)",
+      },
+    }).showToast();
+  }
   BUDGET.getBudget(budgetValue);
   BUDGET.getBalance(budgetValue);
   UX.displayBudget(budget, BUDGET.getValueBudget());
