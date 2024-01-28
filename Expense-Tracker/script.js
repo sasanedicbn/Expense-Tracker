@@ -79,4 +79,5 @@ budgetBtn.addEventListener("click", function () {
 btnAdd.addEventListener("click", function () {
   const transactionMoney = transactionValue.value;
   if (!transactionMoney) return;
+  BUDGET.addExpense(transactionMoney);
 });
