@@ -71,6 +71,9 @@ class Ux {
   displayExpense(element, expense) {
     element.textContent = `$${expense}`;
   }
+  displayTransaction(id, name, cost, date, action) {
+    const transactionList = document.querySelector(".transaction-list");
+  }
 }
 const BUDGET = new Budget();
 const UX = new Ux();

@@ -170,13 +170,14 @@ font-weight: bold;
 }
 li{
   list-style-type: none;
-  margin: 10px;
+
 }
 .user-container{
   width: 800px;
   display: flex;
   justify-content: space-between;
-  background-color: red;
+  padding: 10px;
+  background-color: #fff;
 }
 
 /* FOOTER */
