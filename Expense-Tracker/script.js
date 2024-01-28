@@ -82,4 +82,9 @@ btnAdd.addEventListener("click", function () {
   BUDGET.addExpense(transactionMoney);
   UX.displayExpense(expense, BUDGET.getExpense());
   BUDGET.getBalance();
+  UX.displayBalance(balance, BUDGET.getValueBalance());
+
+  console.log(BUDGET.getValueBalance());
+
+  console.log("Total Expenses:", BUDGET.getExpense());
 });
