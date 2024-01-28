@@ -73,6 +73,22 @@ class Ux {
   }
   displayTransaction(id, name, cost, date, action) {
     const transactionList = document.querySelector(".transaction-list");
+
+    const transactionItem = document.createElement("li");
+    message.remove();
+    transactionItem.innerHTML = `
+    <li>
+    <div class="user-container">
+    <p><b>No.</b><br> ${id}</p>
+    <p><b>Name</b><br> ${name}</p>
+    <p><b>Cost</b><br> ${cost}</p>
+    <p><b>Date</b><br> ${date}</p>
+    <p><b>Action</b><br> ${action}</p>
+    </div>
+    </li>
+    `;
+
+    transactionList.appendChild(transactionItem);
   }
 }
 const BUDGET = new Budget();
