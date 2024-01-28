@@ -5,6 +5,7 @@ const balance = document.querySelector(".box-title-balance");
 const expense = document.querySelector(".box-title-expenses");
 const btnAdd = document.querySelector(".add-transaction-btn");
 const transactionValue = document.querySelector(".transaction-cost-input");
+const transactionName = document.querySelector(".transaction-name-input");
 
 //globalna koji mi je balance i koji mi je array expensova
 //a da bi napravio taj expense moram da napravim ono new Expense
@@ -78,7 +79,15 @@ budgetBtn.addEventListener("click", function () {
 });
 btnAdd.addEventListener("click", function () {
   const transactionMoney = transactionValue.value;
-  if (!transactionMoney) return;
+  if (!transactionMoney)
+    Toastify({
+      text: "The transaction cannot be empty. ",
+      className: "info",
+      style: {
+        background: "linear-gradient(to right, #00b09b, #96c93d)",
+      },
+    }).showToast();
+
   BUDGET.addExpense(transactionMoney);
   UX.displayExpense(expense, BUDGET.getExpense());
   BUDGET.getBalance();
