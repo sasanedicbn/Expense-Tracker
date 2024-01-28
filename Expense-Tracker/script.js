@@ -81,4 +81,5 @@ btnAdd.addEventListener("click", function () {
   if (!transactionMoney) return;
   BUDGET.addExpense(transactionMoney);
   UX.displayExpense(expense, BUDGET.getExpense());
+  BUDGET.getBalance();
 });
