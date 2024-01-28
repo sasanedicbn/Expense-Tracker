@@ -23,7 +23,7 @@ class Budget {
   getBalance() {
     this.balance = this.budget - this.getExpense();
   }
-
+  // oko ovoga gore rad
   getValueBudget() {
     return this.budget;
   }
@@ -75,4 +75,8 @@ budgetBtn.addEventListener("click", function () {
   UX.displayBalance(balance, BUDGET.getValueBalance());
   console.log("Postavljeni budZet:", BUDGET.budget);
   console.log("Postavljeni bilans:", BUDGET.balance);
+});
+btnAdd.addEventListener("click", function () {
+  const transactionMoney = transactionValue.value;
+  if (!transactionMoney) return;
 });
