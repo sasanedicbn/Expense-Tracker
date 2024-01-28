@@ -2,10 +2,9 @@ const budgetInput = document.querySelector(".budget-input");
 const budgetBtn = document.querySelector(".set-budget-btn");
 const budget = document.querySelector(".box-title-budget");
 const balance = document.querySelector(".box-title-balance");
+const expense = document.querySelector(".box-title-expenses");
 const btnAdd = document.querySelector(".add-transaction-btn");
 const transactionValue = document.querySelector(".transaction-cost-input");
-console.log(btnAdd);
-console.log(budget);
 
 //globalna koji mi je balance i koji mi je array expensova
 //a da bi napravio taj expense moram da napravim ono new Expense
@@ -21,14 +20,21 @@ class Budget {
   getBudget(value) {
     return (this.budget = Number(value));
   }
-  getBalance(value) {
-    this.balance = this.balance - this.expenses;
+  getBalance() {
+    this.balance = this.budget - this.getExpense();
   }
+
   getValueBudget() {
     return this.budget;
   }
   getValueBalance() {
     return this.balance;
+  }
+  addExpense(expense) {
+    this.expenseArray.push(Number(expense));
+  }
+  getExpense() {
+    return this.expenseArray.reduce((total, expense) => total + expense, 0);
   }
 }
 class Transaction {
@@ -43,6 +49,9 @@ class Ux {
   }
   displayBalance(element, balance) {
     element.textContent = `$${balance}`;
+  }
+  displayExpense(element, expense) {
+    element.textContent = `$${expense}`;
   }
 }
 const BUDGET = new Budget();
@@ -61,10 +70,9 @@ budgetBtn.addEventListener("click", function () {
     }).showToast();
   }
   BUDGET.getBudget(budgetValue);
-  BUDGET.getBalance(budgetValue);
+  BUDGET.getBalance();
   UX.displayBudget(budget, BUDGET.getValueBudget());
   UX.displayBalance(balance, BUDGET.getValueBalance());
   console.log("Postavljeni budZet:", BUDGET.budget);
   console.log("Postavljeni bilans:", BUDGET.balance);
 });
-btnAdd.addEventListener("click", function () {});
