@@ -78,7 +78,16 @@ budgetBtn.addEventListener("click", function () {
   console.log("Postavljeni bilans:", BUDGET.balance);
 });
 btnAdd.addEventListener("click", function () {
+  const transactionNameinput = transactionName.value;
   const transactionMoney = transactionValue.value;
+  if (!transactionNameinput)
+    Toastify({
+      text: "You have to input transaction name. ",
+      className: "info",
+      style: {
+        background: "linear-gradient(to right, #00b09b, #96c93d)",
+      },
+    }).showToast();
   if (!transactionMoney)
     Toastify({
       text: "The transaction cannot be empty. ",
