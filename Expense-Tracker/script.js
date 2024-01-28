@@ -6,10 +6,8 @@ const expense = document.querySelector(".box-title-expenses");
 const btnAdd = document.querySelector(".add-transaction-btn");
 const transactionValue = document.querySelector(".transaction-cost-input");
 const transactionName = document.querySelector(".transaction-name-input");
+const message = document.querySelector(".message-transaction");
 
-//globalna koji mi je balance i koji mi je array expensova
-//a da bi napravio taj expense moram da napravim ono new Expense
-//svaki put kad dodam pravim novi expense i gurnem to u array
 class Budget {
   constructor() {
     this.budget = 0;
@@ -24,7 +22,7 @@ class Budget {
   getBalance() {
     this.balance = this.budget - this.getExpense();
   }
-  // oko ovoga gore rad
+
   getValueBudget() {
     return this.budget;
   }
@@ -38,12 +36,31 @@ class Budget {
     return this.expenseArray.reduce((total, expense) => total + expense, 0);
   }
 }
-class Transaction {
-  constructor(name, transaction) {
-    (this.transactionName = name), (this.transaction = transaction);
-  }
-  sendingMoney() {}
-}
+// class Transaction {
+//   constructor(name, transaction) {
+//     (this.transactionName = name), (this.transaction = transaction);
+//   }
+//   sendingMoney() {}
+// }
+// class Transactions {
+//   currentDate = new Date();
+//   formattedDate = currentDate.toLocaleDateString("en-US", {
+//     day: "numeric",
+//     month: "long",
+//     year: "numeric",
+//   });
+//   constructor(id, name, cost, action) {
+//     this.id = id;
+//     this.name = name;
+//     this.cost = cost;
+//     this.date = this.formattedDate;
+//     this.action = action;
+//     this.data = []
+//   }
+//   usersData(){
+//     {}
+//   }
+// }
 class Ux {
   displayBudget(element, budget) {
     element.textContent = `$${budget}`;
@@ -102,6 +119,7 @@ btnAdd.addEventListener("click", function () {
   BUDGET.getBalance();
   UX.displayBalance(balance, BUDGET.getValueBalance());
 
+  UX.displayTransaction(1, transactionNameinput, transactionMoney);
   console.log(BUDGET.getValueBalance());
 
   console.log("Total Expenses:", BUDGET.getExpense());
