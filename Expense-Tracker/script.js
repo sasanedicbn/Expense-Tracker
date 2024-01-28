@@ -110,12 +110,18 @@ budgetBtn.addEventListener("click", function () {
   BUDGET.getBalance();
   UX.displayBudget(budget, BUDGET.getValueBudget());
   UX.displayBalance(balance, BUDGET.getValueBalance());
-  console.log("Postavljeni budZet:", BUDGET.budget);
-  console.log("Postavljeni bilans:", BUDGET.balance);
 });
 btnAdd.addEventListener("click", function () {
   const transactionNameinput = transactionName.value;
   const transactionMoney = transactionValue.value;
+  let id;
+  let currentDate = new Date();
+  let formattedDate = currentDate.toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
   if (!transactionNameinput)
     Toastify({
       text: "You have to input transaction name. ",
@@ -138,8 +144,11 @@ btnAdd.addEventListener("click", function () {
   BUDGET.getBalance();
   UX.displayBalance(balance, BUDGET.getValueBalance());
 
-  UX.displayTransaction(1, transactionNameinput, transactionMoney);
-  console.log(BUDGET.getValueBalance());
-
-  console.log("Total Expenses:", BUDGET.getExpense());
+  UX.displayTransaction(
+    id++,
+    transactionNameinput,
+    transactionMoney,
+    formattedDate,
+    "Remove"
+  );
 });
