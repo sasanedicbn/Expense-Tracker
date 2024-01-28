@@ -83,7 +83,7 @@ class Ux {
     <p><b>Name</b><br> ${name}</p>
     <p><b>Cost</b><br> ${cost}</p>
     <p><b>Date</b><br> ${date}</p>
-    <p><b>Action</b><br> ${action}</p>
+    <p><b>Delete</b><br> ${action} 🗑️</p>
     </div>
     </li>
     `;
