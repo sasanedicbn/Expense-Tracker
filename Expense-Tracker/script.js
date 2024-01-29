@@ -9,6 +9,7 @@ const transactionName = document.querySelector(".transaction-name-input");
 const message = document.querySelector(".message-transaction");
 
 class Budget {
+  id = 1;
   constructor() {
     this.budget = 0;
     this.expenses = 0;
@@ -34,6 +35,9 @@ class Budget {
   }
   getExpense() {
     return this.expenseArray.reduce((total, expense) => total + expense, 0);
+  }
+  returnId() {
+    return this.id++;
   }
 }
 
@@ -130,7 +134,6 @@ btnAdd.addEventListener("click", function () {
   UX.displayBalance(balance, BUDGET.getValueBalance());
 
   UX.displayTransaction(
-    id++,
     transactionNameinput,
     transactionMoney,
     formattedDate,
