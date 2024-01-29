@@ -39,7 +39,10 @@ class Budget {
   returnId() {
     return this.id++;
   }
-  removeUser() {}
+  removeUser(id) {
+    this.expenseArray = this.expenseArray.filter((user) => user.id !== id);
+    console.log(this.expenseArray);
+  }
 }
 
 class Ux {
@@ -134,9 +137,9 @@ btnAdd.addEventListener("click", function () {
   UX.displayExpense(expense, BUDGET.getExpense());
   BUDGET.getBalance();
   UX.displayBalance(balance, BUDGET.getValueBalance());
-  let ids = BUDGET.returnId();
+  // let ids = BUDGET.returnId();
   UX.displayTransaction(
-    ids,
+    BUDGET.returnId(),
     transactionNameinput,
     transactionMoney,
     formattedDate,
@@ -144,8 +147,11 @@ btnAdd.addEventListener("click", function () {
   );
 });
 document.addEventListener("click", function (event) {
-  if (event.target.classList.containes("remove-btn")) {
+  if (event.target.classList.contains("remove-btn")) {
     const idToRemove = Number(event.target.getAttribute("data-id"));
     BUDGET.removeUser(idToRemove);
+    console.log(BUDGET.expenseArray);
+    const element = document.querySelector("li");
+    element.remove();
   }
 });
