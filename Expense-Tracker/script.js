@@ -132,8 +132,9 @@ btnAdd.addEventListener("click", function () {
   UX.displayExpense(expense, BUDGET.getExpense());
   BUDGET.getBalance();
   UX.displayBalance(balance, BUDGET.getValueBalance());
-
+  let ids = BUDGET.returnId();
   UX.displayTransaction(
+    ids,
     transactionNameinput,
     transactionMoney,
     formattedDate,
