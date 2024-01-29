@@ -36,31 +36,7 @@ class Budget {
     return this.expenseArray.reduce((total, expense) => total + expense, 0);
   }
 }
-// class Transaction {
-//   constructor(name, transaction) {
-//     (this.transactionName = name), (this.transaction = transaction);
-//   }
-//   sendingMoney() {}
-// }
-// class Transactions {
-//   currentDate = new Date();
-//   formattedDate = currentDate.toLocaleDateString("en-US", {
-//     day: "numeric",
-//     month: "long",
-//     year: "numeric",
-//   });
-//   constructor(id, name, cost, action) {
-//     this.id = id;
-//     this.name = name;
-//     this.cost = cost;
-//     this.date = this.formattedDate;
-//     this.action = action;
-//     this.data = []
-//   }
-//   usersData(){
-//     {}
-//   }
-// }
+
 class Ux {
   displayBudget(element, budget) {
     element.textContent = `$${budget}`;
