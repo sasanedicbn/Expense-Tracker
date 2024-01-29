@@ -160,4 +160,14 @@ function resetApp() {
   BUDGET.expenses = 0;
   BUDGET.balance = 0;
   BUDGET.expenseArray = [];
+
+  UX.displayBudget(budget, BUDGET.getValueBudget());
+  UX.displayBalance(balance, BUDGET.getValueBalance());
+  UX.displayExpense(expense, BUDGET.getExpense());
+
+  const transactionList = document.querySelector(".transaction-list");
+  transactionList.innerHTML = "";
 }
+
+const restartButton = document.getElementById("restart-button");
+restartButton.addEventListener("click", resetApp);
