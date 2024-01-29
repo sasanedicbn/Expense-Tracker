@@ -39,6 +39,7 @@ class Budget {
   returnId() {
     return this.id++;
   }
+  removeUser() {}
 }
 
 class Ux {
