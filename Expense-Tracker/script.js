@@ -143,3 +143,9 @@ btnAdd.addEventListener("click", function () {
     "Remove"
   );
 });
+document.addEventListener("click", function (event) {
+  if (event.target.classList.containes("remove-btn")) {
+    const idToRemove = Number(event.target.getAttribute("data-id"));
+    BUDGET.removeUser(idToRemove);
+  }
+});
