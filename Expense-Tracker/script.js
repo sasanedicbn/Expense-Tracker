@@ -77,7 +77,24 @@ class Ux {
     const transactionItem = document.createElement("li");
     message.remove();
     transactionItem.innerHTML = `
-   
+    <li>
+    <div class="user-container">
+    <table id="customers">
+  <tr>
+    <th>No.</th>
+    <th>Name</th>
+    <th>Cost</th>
+    <th>Date</th>
+    <th>Delete </th>
+  </tr>
+  <tr>
+    <td>${id}</td>
+    <td>${name}</td>
+    <td>$${cost}</td>
+    <td>${date}</td>
+    <td>${action} ❌</td>
+  </tr>
+  </div>
     `;
 
     transactionList.appendChild(transactionItem);
