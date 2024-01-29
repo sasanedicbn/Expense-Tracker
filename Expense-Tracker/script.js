@@ -73,7 +73,8 @@ class Ux {
     <td>${name}</td>
     <td>$${cost}</td>
     <td>${date}</td>
-    <td>${action} ❌</td>
+    <td >
+    <button class="remove-btn" data-id="${id}">❌</button></td>
   </tr>
   </div>
     `;
