@@ -155,3 +155,9 @@ document.addEventListener("click", function (event) {
     element.remove();
   }
 });
+function resetApp() {
+  BUDGET.budget = 0;
+  BUDGET.expenses = 0;
+  BUDGET.balance = 0;
+  BUDGET.expenseArray = [];
+}
