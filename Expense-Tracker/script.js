@@ -104,13 +104,12 @@ budgetBtn.addEventListener("click", function () {
   BUDGET.getBalance();
   UX.displayBudget(budget, BUDGET.getValueBudget());
   UX.displayBalance(balance, BUDGET.getValueBalance());
+  budgetInput.disabled = true;
+  budgetBtn.disabled = true;
 });
 btnAdd.addEventListener("click", function () {
   const transactionNameinput = transactionName.value;
   const transactionMoney = transactionValue.value;
-  if (!transactionNameinput)
-    Warning("The transaction name input cannot be empty. ");
-  if (!transactionMoney) Warning("The transaction money cannot be empty. ");
   let id;
   let currentDate = new Date();
   let formattedDate = currentDate.toLocaleDateString("en-US", {
@@ -126,7 +125,6 @@ btnAdd.addEventListener("click", function () {
     UX.displayExpense(expense, BUDGET.getExpense());
     BUDGET.getBalance();
     UX.displayBalance(balance, BUDGET.getValueBalance());
-    // let ids = BUDGET.returnId();
     UX.displayTransaction(
       BUDGET.returnId(),
       transactionNameinput,
@@ -160,6 +158,7 @@ function resetApp() {
 
   const transactionList = document.querySelector(".transaction-list");
   transactionList.innerHTML = "";
+  Warning("You have successfully rebooted the data");
 }
 
 const restartButton = document.getElementById("restart-button");
