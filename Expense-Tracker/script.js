@@ -164,6 +164,9 @@ function resetApp() {
   budgetBtn.style.backgroundColor = "#28a745";
   budgetInput.style.cursor = "pointer";
   budgetBtn.style.cursor = "pointer";
+  budgetInput.disabled = false;
+  budgetBtn.disabled = false;
+  budgetInput.value = "";
 
   const transactionList = document.querySelector(".transaction-list");
   transactionList.innerHTML = "";
