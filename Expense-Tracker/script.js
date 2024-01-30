@@ -104,27 +104,13 @@ budgetBtn.addEventListener("click", function () {
   BUDGET.getBalance();
   UX.displayBudget(budget, BUDGET.getValueBudget());
   UX.displayBalance(balance, BUDGET.getValueBalance());
-  budgetInput.value = "";
 });
 btnAdd.addEventListener("click", function () {
   const transactionNameinput = transactionName.value;
   const transactionMoney = transactionValue.value;
   if (!transactionNameinput)
-    Toastify({
-      text: "The transaction name input cannot be empty. ",
-      className: "info",
-      style: {
-        background: "linear-gradient(to right, #00b09b, #96c93d)",
-      },
-    }).showToast();
-  if (!transactionMoney)
-    Toastify({
-      text: "The transaction money cannot be empty. ",
-      className: "info",
-      style: {
-        background: "linear-gradient(to right, #00b09b, #96c93d)",
-      },
-    }).showToast();
+    Warning("The transaction name input cannot be empty. ");
+  if (!transactionMoney) Warning("The transaction money cannot be empty. ");
   let id;
   let currentDate = new Date();
   let formattedDate = currentDate.toLocaleDateString("en-US", {
@@ -133,24 +119,8 @@ btnAdd.addEventListener("click", function () {
     year: "numeric",
   });
 
-  if (!transactionNameinput) {
-    Toastify({
-      text: "You have to input transaction name. ",
-      className: "info",
-      style: {
-        background: "linear-gradient(to right, #00b09b, #96c93d)",
-      },
-    }).showToast();
-  }
-  if (!transactionMoney) {
-    Toastify({
-      text: "The transaction cannot be empty. ",
-      className: "info",
-      style: {
-        background: "linear-gradient(to right, #00b09b, #96c93d)",
-      },
-    }).showToast();
-  }
+  if (!transactionNameinput) Warning("You have to input transaction name.");
+  if (!transactionMoney) Warning("The transaction cannot be empty. ");
   if (transactionMoney) {
     BUDGET.addExpense(transactionMoney);
     UX.displayExpense(expense, BUDGET.getExpense());
@@ -175,6 +145,7 @@ document.addEventListener("click", function (event) {
     console.log(BUDGET.expenseArray);
     const element = document.querySelector("li");
     element.remove();
+    onDelete();
   }
 });
 function resetApp() {
@@ -189,7 +160,6 @@ function resetApp() {
 
   const transactionList = document.querySelector(".transaction-list");
   transactionList.innerHTML = "";
-  onDelete();
 }
 
 const restartButton = document.getElementById("restart-button");
@@ -202,5 +172,14 @@ function onDelete() {
     position: "right",
     backgroundColor: "#27ae60",
     stopOnFocus: true,
+  }).showToast();
+}
+function Warning(text) {
+  Toastify({
+    text: text,
+    className: "info",
+    style: {
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+    },
   }).showToast();
 }
