@@ -160,6 +160,10 @@ function resetApp() {
   UX.displayBudget(budget, BUDGET.getValueBudget());
   UX.displayBalance(balance, BUDGET.getValueBalance());
   UX.displayExpense(expense, BUDGET.getExpense());
+  budgetInput.style.backgroundColor = "#fff";
+  budgetBtn.style.backgroundColor = "#28a745";
+  budgetInput.style.cursor = "pointer";
+  budgetBtn.style.cursor = "pointer";
 
   const transactionList = document.querySelector(".transaction-list");
   transactionList.innerHTML = "";
