@@ -104,6 +104,7 @@ budgetBtn.addEventListener("click", function () {
   BUDGET.getBalance();
   UX.displayBudget(budget, BUDGET.getValueBudget());
   UX.displayBalance(balance, BUDGET.getValueBalance());
+  budgetInput.value = "";
 });
 btnAdd.addEventListener("click", function () {
   const transactionNameinput = transactionName.value;
