@@ -163,6 +163,7 @@ btnAdd.addEventListener("click", function () {
       formattedDate,
       "Remove"
     );
+    transactionName.value = "";
   }
 });
 document.addEventListener("click", function (event) {
