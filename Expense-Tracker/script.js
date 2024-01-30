@@ -84,6 +84,7 @@ class Ux {
 
     transactionList.appendChild(transactionItem);
   }
+  disabledElements() {}
 }
 const BUDGET = new Budget();
 const UX = new Ux();
@@ -106,6 +107,10 @@ budgetBtn.addEventListener("click", function () {
   UX.displayBalance(balance, BUDGET.getValueBalance());
   budgetInput.disabled = true;
   budgetBtn.disabled = true;
+  budgetInput.style.backgroundColor = "#ccc";
+  budgetBtn.style.backgroundColor = "#ccc";
+  budgetInput.style.cursor = "not-allowed";
+  budgetBtn.style.cursor = "not-allowed";
 });
 btnAdd.addEventListener("click", function () {
   const transactionNameinput = transactionName.value;
