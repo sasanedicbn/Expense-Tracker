@@ -189,7 +189,18 @@ function resetApp() {
 
   const transactionList = document.querySelector(".transaction-list");
   transactionList.innerHTML = "";
+  onDelete();
 }
 
 const restartButton = document.getElementById("restart-button");
 restartButton.addEventListener("click", resetApp);
+function onDelete() {
+  Toastify({
+    text: "You have successfully deleted the transaction!",
+    duration: 3000,
+    gravity: "bottom",
+    position: "right",
+    backgroundColor: "#27ae60",
+    stopOnFocus: true,
+  }).showToast();
+}
