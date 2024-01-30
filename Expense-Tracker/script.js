@@ -108,6 +108,22 @@ budgetBtn.addEventListener("click", function () {
 btnAdd.addEventListener("click", function () {
   const transactionNameinput = transactionName.value;
   const transactionMoney = transactionValue.value;
+  if (!transactionNameinput)
+    Toastify({
+      text: "The transaction name input cannot be empty. ",
+      className: "info",
+      style: {
+        background: "linear-gradient(to right, #00b09b, #96c93d)",
+      },
+    }).showToast();
+  if (!transactionMoney)
+    Toastify({
+      text: "The transaction money cannot be empty. ",
+      className: "info",
+      style: {
+        background: "linear-gradient(to right, #00b09b, #96c93d)",
+      },
+    }).showToast();
   let id;
   let currentDate = new Date();
   let formattedDate = currentDate.toLocaleDateString("en-US", {
@@ -116,7 +132,7 @@ btnAdd.addEventListener("click", function () {
     year: "numeric",
   });
 
-  if (!transactionNameinput)
+  if (!transactionNameinput) {
     Toastify({
       text: "You have to input transaction name. ",
       className: "info",
@@ -124,27 +140,22 @@ btnAdd.addEventListener("click", function () {
         background: "linear-gradient(to right, #00b09b, #96c93d)",
       },
     }).showToast();
-  if (!transactionMoney)
-    Toastify({
-      text: "The transaction cannot be empty. ",
-      className: "info",
-      style: {
-        background: "linear-gradient(to right, #00b09b, #96c93d)",
-      },
-    }).showToast();
+  }
 
-  BUDGET.addExpense(transactionMoney);
-  UX.displayExpense(expense, BUDGET.getExpense());
-  BUDGET.getBalance();
-  UX.displayBalance(balance, BUDGET.getValueBalance());
-  // let ids = BUDGET.returnId();
-  UX.displayTransaction(
-    BUDGET.returnId(),
-    transactionNameinput,
-    transactionMoney,
-    formattedDate,
-    "Remove"
-  );
+  if (transactionMoney) {
+    BUDGET.addExpense(transactionMoney);
+    UX.displayExpense(expense, BUDGET.getExpense());
+    BUDGET.getBalance();
+    UX.displayBalance(balance, BUDGET.getValueBalance());
+    // let ids = BUDGET.returnId();
+    UX.displayTransaction(
+      BUDGET.returnId(),
+      transactionNameinput,
+      transactionMoney,
+      formattedDate,
+      "Remove"
+    );
+  }
 });
 document.addEventListener("click", function (event) {
   if (event.target.classList.contains("remove-btn")) {
