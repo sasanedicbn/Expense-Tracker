@@ -164,6 +164,7 @@ btnAdd.addEventListener("click", function () {
       "Remove"
     );
     transactionName.value = "";
+    transactionValue.value = "";
   }
 });
 document.addEventListener("click", function (event) {
