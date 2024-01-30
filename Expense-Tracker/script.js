@@ -30,11 +30,14 @@ class Budget {
   getValueBalance() {
     return this.balance;
   }
-  addExpense(expense) {
-    this.expenseArray.push(Number(expense));
+  addExpense(expenseObj) {
+    this.expenseArray.push(expenseObj);
   }
   getExpense() {
-    return this.expenseArray.reduce((total, expense) => total + expense, 0);
+    return this.expenseArray.reduce(
+      (total, expense) => total + expense.number,
+      0
+    );
   }
   returnId() {
     return this.id++;
@@ -126,12 +129,16 @@ btnAdd.addEventListener("click", function () {
   if (!transactionNameinput) Warning("You have to input transaction name.");
   if (!transactionMoney) Warning("The transaction cannot be empty. ");
   if (transactionMoney) {
-    BUDGET.addExpense(transactionMoney);
+    const expenseObj = {
+      id: BUDGET.returnId(),
+      number: Number(transactionMoney),
+    };
+    BUDGET.addExpense(expenseObj);
     UX.displayExpense(expense, BUDGET.getExpense());
     BUDGET.getBalance();
     UX.displayBalance(balance, BUDGET.getValueBalance());
     UX.displayTransaction(
-      BUDGET.returnId(),
+      expenseObj.id,
       transactionNameinput,
       transactionMoney,
       formattedDate,
@@ -140,14 +147,18 @@ btnAdd.addEventListener("click", function () {
     transactionName.value = "";
     transactionValue.value = "";
   }
+  console.log(BUDGET.expenseArray);
 });
 document.addEventListener("click", function (event) {
   if (event.target.classList.contains("remove-btn")) {
     const idToRemove = Number(event.target.getAttribute("data-id"));
     BUDGET.removeUser(idToRemove);
     console.log(BUDGET.expenseArray);
-    const element = document.querySelector("li");
-    element.remove();
+    // ne kontam ovo dole
+    const elementToRemove = document
+      .querySelector(`.remove-btn[data-id="${idToRemove}"]`)
+      .closest("li");
+    elementToRemove.remove();
     onDelete();
   }
 });
