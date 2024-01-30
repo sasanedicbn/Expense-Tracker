@@ -141,7 +141,15 @@ btnAdd.addEventListener("click", function () {
       },
     }).showToast();
   }
-
+  if (!transactionMoney) {
+    Toastify({
+      text: "The transaction cannot be empty. ",
+      className: "info",
+      style: {
+        background: "linear-gradient(to right, #00b09b, #96c93d)",
+      },
+    }).showToast();
+  }
   if (transactionMoney) {
     BUDGET.addExpense(transactionMoney);
     UX.displayExpense(expense, BUDGET.getExpense());
